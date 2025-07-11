@@ -37,8 +37,8 @@ class LoginPage extends StatelessWidget {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              Color.fromARGB(195, 47, 4, 121),
-              Color.fromARGB(255, 14, 6, 8),
+              Color.fromARGB(204, 145, 89, 16),
+              Color.fromARGB(255, 90, 65, 9),
             ],
           ),
         ),
@@ -137,8 +137,8 @@ class LoginPage extends StatelessWidget {
                 FadeInUp(
                   duration: Duration(milliseconds: 1700),
                   child: const Text(
-                    "Continue com social media",
-                    style: TextStyle(color: Colors.grey),
+                    "Criar conta ou continue",
+                    style: TextStyle(color: Color.fromARGB(255, 236, 236, 236)),
                   ),
                 ),
 
@@ -158,7 +158,7 @@ class LoginPage extends StatelessWidget {
                           ),
                           child: const Center(
                             child: Text(
-                              "Facebook",
+                              "google",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
