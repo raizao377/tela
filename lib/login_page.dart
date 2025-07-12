@@ -16,23 +16,14 @@ class LoginPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        title: Image.network(
-          "https://i.ibb.co/QFhRmJgq/cajutec-color-cb5c64a4.png",
-          width: isDesktop ? 110 : 90,
-          errorBuilder: (context, error, stackTrace) {
-            return const Text(
-              "Erro ao carregar imagem",
-              style: TextStyle(color: Colors.white),
-            );
-          },
-        ),
+        toolbarHeight: 0, 
       ),
       body: Container(
         width: double.infinity,
         height: double.infinity,
         padding: EdgeInsets.symmetric(
           horizontal: isDesktop ? screenWidth * 0.3 : 27,
-          vertical: 40,
+          vertical: 0,
         ),
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -47,6 +38,24 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
+                
+                Container(
+                  margin: const EdgeInsets.only(bottom: 20),
+                  height: 90,
+                  child: Image.network(
+                    "https://i.ibb.co/27ggsLMW/cajutec-color-cb5c64a4.png",
+                    fit: BoxFit.contain,
+                    errorBuilder: (context, error, stackTrace) {
+                      return const Text(
+                        "Erro ao carregar imagem",
+                        style: TextStyle(color: Colors.white),
+                      );
+                    },
+                  ),
+                ),
+
+                const SizedBox(height: 10),
+
                 const Text(
                   "Digite os dados de acesso nos campos abaixo.",
                   style: TextStyle(color: Colors.white, fontSize: 16),
@@ -132,6 +141,7 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {},
                   ),
                 ),
+
                 const SizedBox(height: 50),
 
                 FadeInUp(
