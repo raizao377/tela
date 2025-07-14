@@ -9,6 +9,7 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final isDesktop = screenWidth > 600;
+   
 
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -16,14 +17,13 @@ class LoginPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         centerTitle: true,
-        toolbarHeight: 0, 
+        toolbarHeight: 0,
       ),
       body: Container(
         width: double.infinity,
         height: double.infinity,
         padding: EdgeInsets.symmetric(
           horizontal: isDesktop ? screenWidth * 0.3 : 27,
-          vertical: 0,
         ),
         decoration: const BoxDecoration(
           gradient: LinearGradient(
@@ -38,10 +38,9 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                
                 Container(
                   margin: const EdgeInsets.only(bottom: 20),
-                  height: 90,
+                  height: screenWidth < 400 ? 70 : 90,
                   child: Image.network(
                     "https://i.ibb.co/27ggsLMW/cajutec-color-cb5c64a4.png",
                     fit: BoxFit.contain,
@@ -145,7 +144,7 @@ class LoginPage extends StatelessWidget {
                 const SizedBox(height: 50),
 
                 FadeInUp(
-                  duration: Duration(milliseconds: 1700),
+                  duration: const Duration(milliseconds: 1700),
                   child: const Text(
                     "Criar conta ou continue",
                     style: TextStyle(color: Color.fromARGB(255, 236, 236, 236)),
@@ -154,55 +153,103 @@ class LoginPage extends StatelessWidget {
 
                 const SizedBox(height: 30),
 
-                Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: FadeInUp(
-                        duration: Duration(milliseconds: 1800),
-                        child: MaterialButton(
-                          onPressed: () {},
-                          height: 50,
-                          color: Colors.blue,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "google",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                screenWidth < 360
+                    ? Column(
+                        children: [
+                          FadeInUp(
+                            duration: const Duration(milliseconds: 1800),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: MaterialButton(
+                                onPressed: () {},
+                                height: 50,
+                                color: Colors.blue,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: const Text(
+                                  "Google",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 30),
-                    Expanded(
-                      child: FadeInUp(
-                        duration: Duration(milliseconds: 1900),
-                        child: MaterialButton(
-                          onPressed: () {},
-                          height: 50,
-                          color: Colors.black,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50),
-                          ),
-                          child: const Center(
-                            child: Text(
-                              "Github",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.bold,
+                          const SizedBox(height: 15),
+                          FadeInUp(
+                            duration: const Duration(milliseconds: 1900),
+                            child: SizedBox(
+                              width: double.infinity,
+                              child: MaterialButton(
+                                onPressed: () {},
+                                height: 50,
+                                color: Colors.black,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: const Text(
+                                  "Github",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
                             ),
                           ),
-                        ),
+                        ],
+                      )
+                    : Row(
+                        children: <Widget>[
+                          Expanded(
+                            child: FadeInUp(
+                              duration: const Duration(milliseconds: 1800),
+                              child: MaterialButton(
+                                onPressed: () {},
+                                height: 50,
+                                color: Colors.blue,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "Google",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          const SizedBox(width: 30),
+                          Expanded(
+                            child: FadeInUp(
+                              duration: const Duration(milliseconds: 1900),
+                              child: MaterialButton(
+                                onPressed: () {},
+                                height: 50,
+                                color: Colors.black,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(50),
+                                ),
+                                child: const Center(
+                                  child: Text(
+                                    "Github",
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ),
-                  ],
-                ),
               ],
             ),
           ),
